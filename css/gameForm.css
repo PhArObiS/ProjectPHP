@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: linear-gradient(315deg, #7ae0e9 0%, #54bb81 74%);
+}
+
+.heading {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    max-width: 1200px;
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+    font-size: 1.4em;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding-right: 1em;
+}
+
+.navbar ul li {
+    list-style: none;
+    padding: 0.01em 0.5em;
+}
+
+.navbar ul li a {
+    font-size: 1.0625em;
+}
+
+.navbar ul li:hover {
+    background-color: rgb(44, 156, 120);
+    transition: background-color var(--trans-speed) var(--trans-ease);
+    border-radius: 0.4375em;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.gameForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    height: 600px;
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px; /* Add padding for better appearance */
+  background-color: rgba(0,0,0,0.1); /* Background color for visibility, adjust as needed */
+  color: #000000; /* Font color, adjust as needed */
+}
+  
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.1); /* Background color for visibility, adjust as needed */
+  color: #000000; /* Font color, adjust as needed */
+}
+
+.top-left label,
+.top-right label {
+    margin-right: 10px;
+}
+
+.top-left input,
+.top-right input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Updated Button Styles */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.5s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+#giveUpButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #008CBA;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+#giveUpButton:hover {
+    background-color: #007ba7;
+  }
+
+.game-container {
+    max-width: 1200px;
+    position: relative;
+    width: 80%; /* Set the width to 40% */
+    background-color: #fff;
+    padding: 30px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    border: 20px solid #1f2847; /* Add a dark border */
+    margin: auto; /* Center the game container */
+}
+
+
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#register  {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+
+    
+}
+
+#login {
+    background-color: #008CBA; /* Blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+    display: none;
+}
+
+
+
+
+
+/* Footer Styles */
+.footer-container {
+    max-width: 1200px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.footer-container p {
+    margin: 0;
+    padding: 0;
+    color:#fff;
+}
+
+@media (max-width: 993px) {
+    .navbar-brand {
+        position: absolute;
+        top: -30px;  /* Adjust this value based on your requirements */
+        left: 50%;
+        transform: translateX(-50%);
+        
+
+    }
+    .navbar-toggler {
+        position: relative;
+        z-index: 1;
+
+
+    }
+}

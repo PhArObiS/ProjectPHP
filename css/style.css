@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+    
+body {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: linear-gradient(315deg, #7ae0e9 0%, #54bb81 74%);
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    max-width: 1200px;
+    
+}
+.navbar-brand {
+    text-transform: uppercase;
+    font-size: 1.4em;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+
+
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding-right: 1em;
+
+  }
+
+  .navbar ul li {
+    list-style: none;
+    padding: 0.01em 0.5em; /* Adjust the padding values as per your preference */
+  }
+  
+  .navbar ul li a {
+    font-size: 1.0625em; /* 17px equivalent */
+  }
+  
+  .navbar ul li:hover {
+    background-color: rgb(44, 156, 120);
+    transition: background-color var(--trans-speed) var(--trans-ease);
+    border-radius: 0.4375em; /* 7px equivalent */
+  }
+
+  main {
+    flex-grow: 1;
+}
+
+.main-container {
+    max-width: 1200px;
+    position: relative;
+    width: 100%;
+    background-color: #1f2847;
+    padding: 30px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.heading {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+
+.form {
+    background-color: #fff;
+    color: #2a2a2a;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 10%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Button container styles */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Login button styles */
+#login-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* This will create some space between the buttons */
+    width: 100%; /* This will make the button take up the full width of the container */
+}
+
+#login-button:hover {
+    background-color: #45a049;
+}
+
+/* Register button styles */
+#register-button {
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* This will make the button take up the full width of the container */
+}
+
+#register-button:hover {
+    background-color: #007ba7;
+}
+label {
+    margin-bottom: 5px;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+    display: none;
+}
+
+
+
+
+
+/* Footer Styles */
+.footer-container {
+    max-width: 1200px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.footer-container p {
+    margin: 0;
+    padding: 0;
+    color:#fff;
+}
+
+@media (max-width: 993px) {
+    .navbar-brand {
+        position: absolute;
+        top: -30px;  /* Adjust this value based on your requirements */
+        left: 50%;
+        transform: translateX(-50%);
+        
+
+    }
+    .navbar-toggler {
+        position: relative;
+        z-index: 1;
+
+
+    }
+}
