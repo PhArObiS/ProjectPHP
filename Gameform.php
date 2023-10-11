@@ -1,3 +1,8 @@
+<div id="loading-animation-container">
+  <!-- Animation goes here -->
+  <div id="spinner"></div>
+</div>
+
 <?php
 session_start(); // Start a session
 if (!isset($_SESSION['lives'])) {

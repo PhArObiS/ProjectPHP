@@ -17,13 +17,14 @@ body {
     background: #23242a;
 }
 
+/* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5em 1em;
     margin-bottom: 1em;
-    max-width: 1200px;
+    width: 100%;
 }
 
 .navbar-brand {
@@ -66,6 +67,30 @@ main {
     flex-grow: 1;
 }
 
+/* Sign Up Form Styles */
+.main-container {
+    position: relative;
+    width: 380px;
+    height: 620px; /* Increased from 560px to 600px */
+    background: #1c1c1c;
+    padding: 10px; 
+    overflow: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main-container .form{
+    position: absolute;	
+    inset: 10px 10px 10px 10px; /* Adjust the inset values as per your preference */		
+    background: #222;		
+    color: #ffffff;		
+    padding: 40px 42px;		
+    border-radius: 9px;		
+    z-index: 2;
+}
+
+
+
 .heading {
     font-size: 22px;
     letter-spacing: 0.05em;
@@ -77,45 +102,7 @@ main {
     margin-bottom: 20px; /* Adjust as per your preference */
 }
 
-/* Gaame Form Styles */
-.game-container {
-    position: relative;
-    width: 480px;
-    height: 640px; /* Increased from 560px to 600px */
-    background: #1c1c1c;
-    padding: 40px 42px;; 
-    overflow: hidden;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #383838;
-    margin: auto; /* Center the game container */
-}
-
-.game-container .gameform {
-    display: absolute;
-    flex-direction: column;
-    color: #fff;
-    padding: 40px 42px;		
-    text-align: center;
-    background: #222;
-    background-color: #383838;
-}
-
-input[type="text"], input[type="password"] {
-    width: 100%;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    border: 1px solid #df1c87;
-}
-
-h2 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #fff;
-}
-/* 
-.game-container::before {	
+.main-container::before {	
     content: '';
     margin-bottom: 15px;
     position: absolute;		
@@ -130,7 +117,7 @@ h2 {
     animation: animate 6s linear infinite;
 }
 
-.game-container::after {
+.main-container::after {
     content: '';
     position: absolute;
     top: -50;
@@ -146,10 +133,11 @@ h2 {
 }
 
 .borderLine {
-    position: absoluute;
+    position: absolute; 
     top: 0;
     inset: 0;
 }
+
 .borderLine::before {
     content: '';
     position: absolute;
@@ -188,103 +176,83 @@ h2 {
     100% {
         transform: rotate(360deg);
     }
-} */
-
-
-/* .button-container {
-    color:red;
-    padding-top: 20px; /* Adjust as needed 
-} */
-
-/* .btn {
-    flex: 1;
-    margin: 0.5em;
-} 
-
-.btn-loginPrimary {
-    background-color: #4CAF50; /* You can change this color to suit your design 
-    color: #fff; /* This is the color of the text in the button, change as needed
 }
 
-.btn-gamePrimary {
-    background-color: #426fc2; /* You can change this color to suit your design 
-    color: #fff; /* This is the color of the text in the button, change as needed 
+.main-container .form .input-box input:focus ~ label,
+.main-container .form .input-box input:valid ~ label {
+    top: -18px;
+    left: 0;
+    color: #45f3ff;
+    font-size: 0.75em;
 }
 
-.top-left label,
-.top-right label {
-    margin-right: 10px;
+.main-container .form .input-box i {
+    position: absolute;
+    top: 50%;
+    left: 0.5em;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: #45f3ff;
+    transition: 0.5s;
 }
 
-.top-left input,
-.top-right input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-*/
-
-/* User Display */ 
-.top-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px; /* Add padding for better appearance */
-  /* background-color: rgba(0,0,0,0.1); /* Background color for visibility, adjust as needed */
-  color: #00bdca; /* Font color, adjust as needed */
-}
-  
-/* User Lives Used Display */
-.top-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 20px;
-  /* background-color: rgba(0,0,0,0.1); /* Background color for visibility, adjust as needed */
-  color: #00bdca; /* Font color, adjust as needed */
+.inputBox {
+    margin-bottom: 15px;
 }
 
-/* Updated Button Styles ******************************************************************************/
-button {
-    background-color: #ff2770;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border: none;
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    width: 100%;
-    transition: background-color 0.5s ease;
-}
-
-button:hover {
-    background-color: #9c0034;
-}
-
-
-#giveUpButton {
+.inputBox label {
     display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.inputBox input {
     width: 100%;
-    padding: 10px;
-    background-color: #00bdca;
-    color: #ffffff;
+    padding: 7px;
+    border: 2px solid #2b2a2a;
+    background: transparent;
+    color: #fff;
+    outline: none;
+    transition: 0.5s;
+}
+
+#register-button {
+    display: block;
+    padding: 10px 30px;
+    background-color: #45cbf8;
     border: none;
-    border-radius: 4px;
+    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-  }
+    transition: background-color 0.3s ease;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px; /* Added this line */
+}
 
-#giveUpButton:hover {
-    background-color: #006870;
-  }
+#register-button:hover {
+    background-color: #ff2770;
+}
+.warning {
+    color: #ff2770;
+    display: none;
+}
 
+/* .links */
+.links {
+    display: flex;
+    align-items: center;
+    margin-top: .05em;
+    justify-content: center; 
+}
+
+.links a {
+    color: #7fd0ff;
+    text-decoration: none;
+    align-items: center;
+    font-size: 0.9em; /* 15px equivalent */
+}
 
 
 /* Footer Styles */
@@ -302,17 +270,55 @@ button:hover {
     color:#fff;
 }
 
+/* Add these styles for the modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+
 @media (max-width: 993px) {
     .navbar-brand {
         position: absolute;
-        top: -30px;  /* Adjust this value based on your requirements */
+        top: -30px;
         left: 50%;
         transform: translateX(-50%);
     }
     .navbar-toggler {
         position: relative;
         z-index: 1;
-
-
     }
 }

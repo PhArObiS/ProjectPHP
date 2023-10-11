@@ -15,7 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newPassword = $_POST['NewPassword'];
     $confirmPassword = $_POST['ConfirmPassword'];
 
-   
+    // Password matching check
+    if ($newPassword !== $confirmPassword) {
+        echo "Passwords do not match!";
+        header("Location: index.html");
+    } elseif (strlen($newPassword) < 8) {
+        echo "Password should be at least 8 characters long!";
+        header("Location: index.html");
+    } else {
         // Update the password
         $dbConnection->updatePassword($username, $newPassword);
 
@@ -23,6 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Password was changed with success";
         header("Location: index.html");
         exit();
-    
+    }
 }
 ?>

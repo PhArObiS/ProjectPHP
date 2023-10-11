@@ -30,8 +30,6 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="signUp.html">Sign Up</a>
                         </li>
-                       
-                       
                     </ul>
                 </div>
 
@@ -40,8 +38,9 @@
     </header>
     <main>
         <div class="main-container">
-            <h1 class="heading">Changement de mot passe</h1>
             <section class="form">
+                <h1 class="heading">Changement de mot passe</h1>
+
                 <form id="modifypassword" method="POST" action="Mdp.php">
                     <div class="form-element">
                         <label for="username">Username:</label>
@@ -56,23 +55,23 @@
                         <input type="password" id="ConfirmPassword" name="ConfirmPassword" minlength="8" required>
                         <span id="passwordMatchError" style="color: red; display: none;">Passwords do not match.</span>
                     </div>
-                    
+
                     <script>
                         // Get references to the password fields
                         var newPasswordInput = document.getElementById("NewPassword");
                         var confirmPasswordInput = document.getElementById("ConfirmPassword");
                         var passwordMatchError = document.getElementById("passwordMatchError");
-                    
+
                         // Add event listener to the Confirm Password input field
-                        confirmPasswordInput.addEventListener("keyup", function() {
+                        confirmPasswordInput.addEventListener("keyup", function () {
                             // Check if the passwords match
                             var passwordsMatch = (newPasswordInput.value === confirmPasswordInput.value);
-                    
+
                             // Show/hide the password match error message
                             passwordMatchError.style.display = passwordsMatch ? "none" : "block";
                         });
                     </script>
-                    
+
                     <button type="submit" class="btn" id="Modifier">Modifier
                     </button>
                     <button type="button" class="btn" id="create-account" onclick="location.href='index.html'">Login
@@ -83,7 +82,7 @@
     </main>
 
 
-    
+
 
     <footer class="footer-container">
         <div class="col-md-12">

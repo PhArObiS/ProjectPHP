@@ -3,6 +3,6 @@ def sort_string(string):
     return sorted_string
 
 # Example usage
-input_string = "ytvpmB"
+input_string = "f l z d a C"
 sorted_string = sort_string(input_string)
 print(sorted_string)

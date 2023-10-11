@@ -1,6 +1,7 @@
 <?php
 class DatabaseConnection
 {
+
     private $connection;
 
     public function __construct($hostname, $username, $password)
@@ -11,6 +12,7 @@ class DatabaseConnection
             die("Connection failed: " . $this->connection->connect_error);
         }
     }
+
     public function getConnection()
     {
         return $this->connection;
@@ -37,6 +39,7 @@ class DatabaseConnection
             die("Selection of the database $database failed! <br>" . $errorMessage);
         }
     }
+
     //////////////////////////////////////////////////////DATABASE/////////////////////////////////////////////////////////////////////////////////////////
     public function createTablePlayer()
     {
@@ -97,35 +100,26 @@ class DatabaseConnection
 
     /////////////////////////////////////////////CREATETABLE////////////////////////////////////////////////////////////
     public function updatePassword($username, $newPassword)
-{
-    $tableName = 'authenticator';
-    $hashedNewPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+    {
+        $tableName = 'authenticator';
+        $hashedNewPassword = password_hash($newPassword, PASSWORD_BCRYPT);
 
- 
+        // Get the registration order based on the username
+        $registrationOrder = $this->getRegistrationOrderByUsername($username);
 
-    // Get the registration order based on the username
-    $registrationOrder = $this->getRegistrationOrderByUsername($username);
+        if ($registrationOrder === null) {
+            echo "Username not found.";
+            return;
+        }
 
- 
+        $sqlUpdateQuery = "UPDATE $tableName SET passCode='$hashedNewPassword' WHERE registrationOrder='$registrationOrder'";
 
-    if ($registrationOrder === null) {
-        echo "Username not found.";
-        return;
+        if ($this->connection->query($sqlUpdateQuery) === FALSE) {
+            echo "Failed to update password: " . $this->connection->error;
+        } else {
+            echo "Password updated successfully.";
+        }
     }
-
- 
-
-    $sqlUpdateQuery = "UPDATE $tableName SET passCode='$hashedNewPassword' WHERE registrationOrder='$registrationOrder'";
-
- 
-
-    if ($this->connection->query($sqlUpdateQuery) === FALSE) {
-        echo "Failed to update password: " . $this->connection->error;
-    } else {
-        echo "Password updated successfully.";
-    }
-}
-    
 
     public function verifyCredentials($username, $password)
     {
@@ -158,8 +152,6 @@ class DatabaseConnection
         echo "Invalid credentials.";
         return false;
     }
-
-
     function getRegistrationOrderByUsername($username)
     {
         // Escape the username to prevent SQL injection
@@ -221,6 +213,7 @@ class DatabaseConnection
 
         return $historyData;
     }
+
     public function insertPlayer($fName, $lName, $userName)
     {
         $sqlQuery = "INSERT INTO player(fName, lName, userName, registrationTime) VALUES ('$fName', '$lName', '$userName', NOW())";
@@ -239,7 +232,6 @@ class DatabaseConnection
             echo "Failed to insert data into authenticator table: " . $this->connection->error;
         }
     }
-
 
     public function insertScore($scoreTime, $result, $livesUsed, $registrationOrder)
     {
@@ -281,13 +273,9 @@ $hostname = 'localhost';
 $username = 'root';
 $password = '';
 $database = 'kidsgames';
-
 $dbConnection = new DatabaseConnection($hostname, $username, $password);
-$dbConnection->selectDatabase($database);
-
 $dbConnection->setupDatabase($database);
-
-// Fake insert from project
+$dbConnection->selectDatabase($database);
 // $dbConnection->insertData();
 
 ?>
